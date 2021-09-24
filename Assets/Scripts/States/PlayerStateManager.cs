@@ -27,7 +27,7 @@ public class PlayerStateManager : MonoBehaviour
         AirbornState airbornState = new AirbornState(coupledStateMachine);
         coupledStateMachine.AddState(typeof(AirbornState), airbornState);
 
-        AddTransitionWithBool(groundedState, transitionEvaluator.InTheAir(player), typeof(AirbornState));
+        AddTransitionWithBool(groundedState, transitionEvaluator.IsGrounded(player), typeof(AirbornState));
         AddTransitionWithKey(groundedState, KeyCode.E, typeof(AirbornState));
         AddTransitionWithBool(airbornState, transitionEvaluator.IsGrounded(player), typeof(GroundedState));
 
